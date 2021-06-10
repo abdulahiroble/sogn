@@ -17,18 +17,16 @@ async function fetchAll() {
         // (C2) ROWS & CELLS
         row = document.createElement("tr");
         header = document.createElement("th");
-        // cellA = document.createElement("td");
+        cellA = document.createElement("td");
         cellB = document.createElement("td");
-        // cellC = document.createElement("td");
 
         // (C3) KEY & VALUE
-        // cellA.innerHTML = results[1][i].kommunenavn
-        cellB.innerHTML = results[0][i].smittetryk
-        // cellC.innerHTML = results[0][i].sognkode
+        cellA.innerHTML = results[1][i].kommunenavn
+        cellB.innerHTML = results[0][i].kommune.kommuneid == 1 ? results[0][0].smittetryk + results[0][1].smittetryk : null
 
         // (C4) ATTACH ROW & CELLS
         table.appendChild(row).style.width = "500px"
-        // row.appendChild(cellA).style.width = "500px"
+        row.appendChild(cellA).style.width = "500px"
         row.appendChild(cellB).style.width = "500px"
     }
 }

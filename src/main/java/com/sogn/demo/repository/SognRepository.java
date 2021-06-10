@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SognRepository extends JpaRepository<Sogn, Integer> {
 
-    // @Query(value = "INSERT INTO kommune (totalsmitte) SELECT SUM(s.smittetryk)
-    // FROM sogn s WHERE s.kommuneid = 2", nativeQuery = true)
-    // int selectTotals();
+    @Query(value = "SELECT SUM(s.smittetryk) FROM sogn s WHERE s.kommuneid = 2", nativeQuery = true)
+    int selectTotals();
 }

@@ -32,28 +32,18 @@ public class HomeController {
         return "/";
     }
 
-    // @GetMapping("/getForecastTotals")
-    // public int getForecastTotals() {
-    // return sognRepository.selectTotals();
-    // }
+    @GetMapping("/getForecastTotals")
+    public int getForecastTotals() {
+        return sognRepository.selectTotals();
+    }
 
     @GetMapping("/sekommuner")
     public String kommuner() {
 
-        // System.out.println(getForecastTotals());
+        System.out.println(getForecastTotals());
 
         return "kommuner";
     }
-
-    // @GetMapping("/kommuner")
-    // public List<Kommune> saveTotalsmitte() {
-
-    // Kommune kommune = new Kommune();
-
-    // kommune.setTotalsmitte(getForecastTotals());
-
-    // return kommuneRepository.save();
-    // }
 
     @GetMapping("updatesognlist")
     public String updatesognlist() {

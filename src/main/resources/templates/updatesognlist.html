@@ -43,6 +43,24 @@
     name="sognkode"
   /><br /><br />
 
+  <label for="navn">Dato for nedlukning:</label><br />
+  <input
+  type="date"
+  id="lukdato"
+  th:field="*{lukdato}"
+  name="lukdato"
+/><br /><br />
+
+<label for="navn">Lukket?</label><br />
+<input
+type="text"
+id="lukket"
+th:field="*{lukket}"
+name="lukket"
+/><br /><br />
+
+
+
   <label for="navn">Kommune:</label><br />
   <div class="select">
     <select name="kommune" id="standard-select" style="width: 70%; margin-left: 16.9%; padding: 3px;">
