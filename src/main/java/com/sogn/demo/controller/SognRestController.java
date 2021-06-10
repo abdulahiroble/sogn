@@ -35,6 +35,7 @@ public class SognRestController {
 
     @GetMapping("/kommuner")
     public List<Kommune> findAllKommuner() {
+
         return kommuneRepository.findAll();
     }
 

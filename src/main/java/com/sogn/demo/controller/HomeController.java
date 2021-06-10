@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
+import com.sogn.demo.models.Kommune;
 import com.sogn.demo.models.Sogn;
+import com.sogn.demo.repository.KommuneRepository;
+import com.sogn.demo.repository.SognRepository;
 import com.sogn.demo.service.SognListService;
 
 @Controller
@@ -18,29 +21,39 @@ public class HomeController {
     @Autowired
     private SognListService sognListService;
 
+    @Autowired
+    private SognRepository sognRepository;
+
+    @Autowired
+    KommuneRepository kommuneRepository;
+
     @GetMapping("/index")
     public String index() {
         return "/";
     }
 
-    @GetMapping("/pricelist/{pricelistNo}")
-    public String showMovieList(@PathVariable(value = "pricelistNo") int pageNo, Model model) {
+    // @GetMapping("/getForecastTotals")
+    // public int getForecastTotals() {
+    // return sognRepository.selectTotals();
+    // }
 
-        try {
-            int pageSize = 10;
+    @GetMapping("/sekommuner")
+    public String kommuner() {
 
-            Page<Sogn> page = sognListService.showMovieList(pageNo, pageSize);
+        // System.out.println(getForecastTotals());
 
-            List<Sogn> listMovie = page.getContent();
-
-            model.addAttribute("listMovie", listMovie);
-
-        } catch (Exception e) {
-            System.out.println("Error can't load up list " + e);
-        }
-
-        return "admin";
+        return "kommuner";
     }
+
+    // @GetMapping("/kommuner")
+    // public List<Kommune> saveTotalsmitte() {
+
+    // Kommune kommune = new Kommune();
+
+    // kommune.setTotalsmitte(getForecastTotals());
+
+    // return kommuneRepository.save();
+    // }
 
     @GetMapping("updatesognlist")
     public String updatesognlist() {
