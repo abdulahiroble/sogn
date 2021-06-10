@@ -48,19 +48,4 @@ public class SognRestController {
         return sognRepository.save(sogn);
     }
 
-    @GetMapping("/sognUpdate/{sognid}")
-    public String pricelistUpdate(@PathVariable(value = "sognid") int sognid, Model model) {
-
-        try {
-            Sogn sognlist = sognListService.getSognById(sognid);
-
-            model.addAttribute("sognlist", sognlist);
-
-        } catch (Exception e) {
-            System.out.println("Error can't update user profile " + e);
-        }
-
-        return "updatesognlist";
-    }
-
 }

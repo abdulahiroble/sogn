@@ -14,14 +14,14 @@
       class="form"
       action="#"
       th:action="@{/newsogn}"
-      th:object="${sogn}"
+      th:object="${sognlist}"
       method="POST"
     >
       <input type="hidden" th:field="*{sognid}" />
 
       <label for="navn">Sogn:</label><br />
       <input
-        type="number"
+        type="text"
         id="navn"
         th:field="*{navn}"
         name="navn"
