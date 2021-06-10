@@ -33,6 +33,39 @@
         <label for="sognkode">Sognkode</label><br />
         <input type="text" id="sognkode" name="sognkode" /><br /><br />
 
+        
+        <label for="lukdato">Dato for nedlukning</label><br />
+        <input type="date" id="lukdato" name="lukdato" /><br /><br />
+
+        <label for="lukket">Lukket?</label><br />
+
+        <script>
+          function onlyOne(checkbox) {
+    var checkboxes = document.getElementsByName('lukket')
+    checkboxes.forEach((item) => {
+        if (item !== checkbox) item.checked = false
+    })
+} 
+        </script>
+
+<label for="lukket">Ja</label><br />
+<input type="checkbox" name="lukket" onclick="onlyOne(this)" value="1">
+
+<br>
+
+<label for="lukket">Nej</label><br />
+<input type="checkbox" name="lukket" onclick="onlyOne(this)" value="0">
+
+<br><br>
+
+        <!-- <h3>Lukke?</h3>
+        
+        <label for="lukket">Ja</label><br />
+        <input type="checkbox" id="lukket" name="lukket" value="1" /><br /><br />
+
+        <label for="lukket">Nej</label><br />
+        <input type="checkbox" id="lukket" name="lukket" value="1" /><br /><br /> -->
+
         <input type="submit" value="Opret sogn" />
       </form>
 

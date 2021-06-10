@@ -1,6 +1,5 @@
 package com.sogn.demo.models;
 
-
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -18,12 +17,13 @@ public class Kommune {
     @Column(name = "kommunenavn")
     private String kommunenavn;
 
+    // @Column(name = "totalsmitte")
+    // private int totalsmitte;
 
     @OneToMany
     @JoinColumn(name = "kommuneid")
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "sognid")
     private Set<Sogn> sogn = new HashSet<>();
-
 
     public Kommune() {
     }
@@ -55,4 +55,12 @@ public class Kommune {
     public void setSogn(Set<Sogn> sogn) {
         this.sogn = sogn;
     }
+
+    // public int getTotalsmitte() {
+    // return totalsmitte;
+    // }
+
+    // public void setTotalsmitte(int totalsmitte) {
+    // this.totalsmitte = totalsmitte;
+    // }
 }

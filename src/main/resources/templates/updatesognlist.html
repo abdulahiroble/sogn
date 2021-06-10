@@ -43,6 +43,37 @@
     name="sognkode"
   /><br /><br />
 
+  <label for="navn">Dato for nedlukning:</label><br />
+  <input
+  type="date"
+  id="lukdato"
+  th:field="*{lukdato}"
+  name="lukdato"
+/><br /><br />
+
+<label for="navn">Lukket?</label><br />
+<script>
+  function onlyOne(checkbox) {
+var checkboxes = document.getElementsByName('lukket')
+checkboxes.forEach((item) => {
+if (item !== checkbox) item.checked = false
+})
+} 
+</script>
+
+<label for="lukket">Ja</label><br />
+<input type="checkbox" name="lukket" onclick="onlyOne(this)" value="1">
+
+<br>
+
+<label for="lukket">Nej</label><br />
+<input type="checkbox" name="lukket" onclick="onlyOne(this)" value="0">
+
+<br><br>
+
+
+
+
   <label for="navn">Kommune:</label><br />
   <div class="select">
     <select name="kommune" id="standard-select" style="width: 70%; margin-left: 16.9%; padding: 3px;">
