@@ -31,11 +31,7 @@ async function fetchAll() {
         cellB.innerHTML = results[0][i].smittetryk
         cellC.innerHTML = results[0][i].sognkode
         cellD.innerHTML = results[1].map((test) => {
-            if (test.kommuneid == 1) {
-                return test.kommunenavn
-            } else if (test.kommuneid == 2) {
-                return test.kommunenavn
-            }
+            return test.kommunenavn
         });
         cellE.innerHTML = results[0][i].lukdato
         cellF.innerHTML = results[0][i].lukket
