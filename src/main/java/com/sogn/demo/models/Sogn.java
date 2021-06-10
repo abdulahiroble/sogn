@@ -8,11 +8,9 @@ import javax.persistence.*;
 @Entity
 public class Sogn {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int sognid;
-
 
     @Column(name = "sognkode")
     private int sognkode;
@@ -23,13 +21,16 @@ public class Sogn {
     @Column(name = "smittetryk")
     private int smittetryk;
 
+    @Column(name = "lukdato")
+    private String lukdato;
 
+    @Column(name = "lukket")
+    private boolean lukket;
 
     @ManyToOne
     @JoinColumn(name = "kommuneid")
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "kommuneid")
     private Kommune kommune;
-
 
     public Sogn() {
     }
@@ -63,6 +64,22 @@ public class Sogn {
 
     public void setNavn(String navn) {
         this.navn = navn;
+    }
+
+    public String getLukdato() {
+        return lukdato;
+    }
+
+    public void setLukdato(String lukdato) {
+        this.lukdato = lukdato;
+    }
+
+    public boolean getLukket() {
+        return lukket;
+    }
+
+    public void setLukket(boolean lukket) {
+        this.lukket = lukket;
     }
 
     public int getSmittetryk() {
