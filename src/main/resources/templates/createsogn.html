@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">¨
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Create movie with js</title>
+</head>
+<body>
+
+
+    <form action="/newsognjs" class="form"  method="post" id="bookingform">
+
+          <label for="standard-select">Select Genre</label>
+
+          <div class="select">
+            <select name="kommune" id="standard-select" style="width: 70%; margin-left: 16.9%; padding: 3px;">
+        
+            </select>
+        
+          </div> 
+            
+            <br /><br />
+
+        <label for="sogn">Sogn</label><br />
+        <input type="text" id="sogn"  name="navn" /><br /><br />
+
+        <label for="smittetryk">Smittetryk</label><br />
+        <input type="number" id="smittetryk" name="smittetryk" /><br /><br />
+
+        <label for="sognkode">Sognkode</label><br />
+        <input type="text" id="sognkode" name="sognkode" /><br /><br />
+
+        <input type="submit" value="Opret sogn" />
+      </form>
+
+      <script src="..js/create-sogn.js"></script>
+
+      <script src="../js/Fetch-kommune-dropdown.js"></script>
+    
+</body>
+</html>

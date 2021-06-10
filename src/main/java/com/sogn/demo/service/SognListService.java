@@ -10,5 +10,7 @@ public interface SognListService {
 
     Page<Sogn> showMovieList(int pageNo, int pageSize);
 
+    void deleteSogn(int sognid);
+
     Sogn getSognById(int sognid);
 }

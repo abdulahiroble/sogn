@@ -62,4 +62,22 @@ public class HomeController {
         return "updatesognlist";
     }
 
+    @GetMapping("/sognDelete/{sognid}")
+    public String deleteSogn(@PathVariable(value = "sognid") int sognid) {
+
+        try {
+            this.sognListService.deleteSogn(sognid);
+        } catch (Exception e) {
+            System.out.println("Error can't delete user " + e);
+        }
+
+        return "redirect:/";
+    }
+
+    @GetMapping("/createsogn")
+    public String createsogn(Model sogn, Model kommune) {
+
+        return "createsogn";
+    }
+
 }

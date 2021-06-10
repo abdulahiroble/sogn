@@ -38,6 +38,11 @@ public class SognListServiceImplementation implements SognListService {
     }
 
     @Override
+    public void deleteSogn(int sognid) {
+        this.sognRepository.deleteById(sognid);
+    }
+
+    @Override
     public Page<Sogn> showMovieList(int pageNo, int pageSize) {
 
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
