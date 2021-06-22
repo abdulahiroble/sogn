@@ -44,30 +44,17 @@ public class SognRestController {
         return sognRepository.findAll();
     }
 
-    @PostMapping("/newsogn")
+    @PostMapping("/newsognjs")
     @ResponseStatus(HttpStatus.CREATED)
-    public Sogn updatesogn(@ModelAttribute("sogn") Sogn sogn) {
+    public Sogn newsogn(@ModelAttribute("sogn") Sogn sogn) {
 
         System.out.println(sogn);
         return sognRepository.save(sogn);
     }
 
-    @PostMapping(value = "/newsognjs", consumes = "application/json")
+    @PostMapping(value = "/newsogn", consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public Sogn newsognjs(@RequestBody Sogn sogn, Model model) {
-
-        Kommune kommune = sogn.getKommune();
-
-        int y = Integer.parseInt(kommune.getKommunenavn());
-
-        kommune.setKommuneid(y);
-
-        return sognRepository.save(sogn);
-    }
-
-    @PostMapping("/newsognjs")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Sogn newsogn(@ModelAttribute("booking") Sogn sogn) {
+    public Sogn newSognjs(@RequestBody Sogn sogn, Model model) {
 
         System.out.println(sogn);
         return sognRepository.save(sogn);
