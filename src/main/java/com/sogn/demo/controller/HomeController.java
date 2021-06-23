@@ -40,7 +40,7 @@ public class HomeController {
     @GetMapping("/sekommuner")
     public String kommuner() {
 
-        // System.out.println(getForecastTotals());
+        System.out.println(getForecastTotals());
 
         return "kommuner";
     }
