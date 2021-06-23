@@ -46,7 +46,15 @@ public class SognRestController {
 
     @PostMapping("/newsognjs")
     @ResponseStatus(HttpStatus.CREATED)
-    public Sogn newsogn(@ModelAttribute("sogn") Sogn sogn) {
+    public Sogn newsognjs(@ModelAttribute("sogn") Sogn sogn) {
+
+        System.out.println(sogn);
+        return sognRepository.save(sogn);
+    }
+
+    @PostMapping("/updatesognjs")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Sogn updatesogn(@ModelAttribute("sogn") Sogn sogn) {
 
         System.out.println(sogn);
         return sognRepository.save(sogn);
