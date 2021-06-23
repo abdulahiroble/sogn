@@ -10,10 +10,10 @@
 </head>
 <body>
 
-
+    <!-- Laver form -->
     <form action="/newsognjs" class="form"  method="post" id="bookingform">
 
-          <label for="standard-select">Select Genre</label>
+          <label for="standard-select">Select kommune</label>
 
           <div class="select">
             <select name="kommune" id="standard-select" style="width: 70%; margin-left: 16.9%; padding: 3px;">
@@ -39,6 +39,7 @@
 
         <label for="lukket">Lukket?</label><br />
 
+        <!-- Sørger for man kan klikke en ting af i checkbox -->
         <script>
           function onlyOne(checkbox) {
     var checkboxes = document.getElementsByName('lukket')
@@ -58,17 +59,10 @@
 
 <br><br>
 
-        <!-- <h3>Lukke?</h3>
-        
-        <label for="lukket">Ja</label><br />
-        <input type="checkbox" id="lukket" name="lukket" value="1" /><br /><br />
-
-        <label for="lukket">Nej</label><br />
-        <input type="checkbox" id="lukket" name="lukket" value="1" /><br /><br /> -->
-
         <input type="submit" value="Opret sogn" />
       </form>
 
+      <!-- Importere js filer-->
       <script src="..js/create-sogn.js"></script>
 
       <script src="../js/Fetch-kommune-dropdown.js"></script>

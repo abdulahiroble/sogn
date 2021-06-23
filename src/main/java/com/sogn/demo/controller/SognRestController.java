@@ -33,17 +33,20 @@ public class SognRestController {
     @Autowired
     SognListService sognListService;
 
+    // Laver en liste af kommune og returnere dem allesammen
     @GetMapping("/kommuner")
     public List<Kommune> findAllKommuner() {
 
         return kommuneRepository.findAll();
     }
 
+    // Laver en liste af sogne og returnere dem allesammen
     @GetMapping("/sogne")
     public List<Sogn> findAllSogne() {
         return sognRepository.findAll();
     }
 
+    // Opretter en ny sogn objekt i browseren og gemmer i db
     @PostMapping("/newsognjs")
     @ResponseStatus(HttpStatus.CREATED)
     public Sogn newsognjs(@ModelAttribute("sogn") Sogn sogn) {
@@ -52,6 +55,7 @@ public class SognRestController {
         return sognRepository.save(sogn);
     }
 
+    // Tager vores form og opdatere sogn i db
     @PostMapping("/updatesognjs")
     @ResponseStatus(HttpStatus.CREATED)
     public Sogn updatesogn(@ModelAttribute("sogn") Sogn sogn) {
@@ -60,6 +64,7 @@ public class SognRestController {
         return sognRepository.save(sogn);
     }
 
+    // Opretter ny sogn i postman
     @PostMapping(value = "/newsogn", consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public Sogn newSognjs(@RequestBody Sogn sogn, Model model) {

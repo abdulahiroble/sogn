@@ -1,18 +1,18 @@
+// Henter vores url'er som vi skal fetche fra
 const urls = [
     "http://localhost:8080/sogne",
     "http://localhost:8080/kommuner"
 ];
 
+// Fetcher alle url og laver om til json
 async function fetchAll() {
     const results = await Promise.all(urls.map((url) => fetch(url).then((r) => r.json())));
 
-    // results.map((test) => console.log(test.map((test2) => test2.reptime || test2.repname)))
-
-    // console.log(JSON.stringify(results, null, 10));
-
+    // Laver tabel og tilføjer html ud fra id
     var table = document.createElement("table"), row, cellA, cellB, cellC, cellD, cellE, header, cellF, cellG, cellH
     document.getElementById("demoB").appendChild(table);
 
+    // lopper igennem resutls og opretter row, header og celler
     for (let i = 0; i < 100; i++) {
         // (C2) ROWS & CELLS
         row = document.createElement("tr");
@@ -26,6 +26,9 @@ async function fetchAll() {
         cellG = document.createElement("td")
         cellH = document.createElement("td")
 
+        // Indsætter vores data i cellerne 
+        // Udregne et specifikt eksempel som viser sum af smittede fra en bestemt kommune
+        // Tilføjer update og delete knap hvor id er taget ud fra en specifik sogn
         // (C3) KEY & VALUE
         cellA.innerHTML = results[0][i].navn
         cellB.innerHTML = results[0][i].smittetryk
@@ -38,6 +41,7 @@ async function fetchAll() {
         cellG.innerHTML = `<a href="http://localhost:8080/sognUpdate/${results[0][i].sognid}" class="btn btn-primary">Update</a>`
         cellH.innerHTML = `<a href="http://localhost:8080/sognDelete/${results[0][i].sognid}" class="btn btn-danger">Delete</a>`
 
+        // Styling af tabel og rows
         // (C4) ATTACH ROW & CELLS
         table.appendChild(row).style.width = "500px"
         row.appendChild(cellA).style.width = "500px"

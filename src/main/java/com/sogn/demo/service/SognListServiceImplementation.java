@@ -14,53 +14,28 @@ import org.springframework.stereotype.Service;
 @Service
 public class SognListServiceImplementation implements SognListService {
 
-    // @Override
-    // public Page<Sogn> showSognList(int pageNo, int pageSize) {
-    // // TODO Auto-generated method stub
-    // return null;
-    // }
-
     @Autowired
     private SognRepository sognRepository;
 
+    // finder sogn fra db ud fra sognid
     @Override
     public Sogn getSognById(int sognid) {
         Optional<Sogn> optional = sognRepository.findById(sognid);
 
-        Sogn user = null;
+        Sogn sogn = null;
 
         if (optional.isPresent()) {
-            user = optional.get();
+            sogn = optional.get();
         } else {
-            throw new RuntimeException(" User not found by id " + sognid);
+            throw new RuntimeException(" Sogn not found by id " + sognid);
         }
-        return user;
+        return sogn;
     }
 
+    // Sletter sogn fra db ud fra sognid
     @Override
     public void deleteSogn(int sognid) {
         this.sognRepository.deleteById(sognid);
     }
-
-    @Override
-    public Page<Sogn> showMovieList(int pageNo, int pageSize) {
-
-        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
-
-        return this.sognRepository.findAll(pageable);
-    }
-
-    // @Override
-    // public Pricelist getPriceListById(int pricelistid) {
-    // Optional<Pricelist> optional = pricelistRepository.findById(pricelistid);
-    // Pricelist user = null;
-
-    // if (optional.isPresent()) {
-    // user = optional.get();
-    // } else {
-    // throw new RuntimeException(" User not found by id " + pricelistid);
-    // }
-    // return user;
-    // }
 
 }

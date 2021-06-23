@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <!-- form med fordefineret data som er hentet fra db -->
     <form
       class="form"
       action="#"
@@ -52,6 +53,7 @@
 /><br /><br />
 
 <label for="navn">Lukket?</label><br />
+  <!-- Sørger for man kan klikke en ting af i checkbox -->
 <script>
   function onlyOne(checkbox) {
 var checkboxes = document.getElementsByName('lukket')
@@ -86,6 +88,7 @@ if (item !== checkbox) item.checked = false
     </form>
   </body>
 
+  <!-- Importere js filer-->
   <script src="../js/Fetch-kommune-dropdown.js"></script>
   
 </html>

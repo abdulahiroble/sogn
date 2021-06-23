@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 
 public interface SognListService {
 
-    Page<Sogn> showMovieList(int pageNo, int pageSize);
-
+    // Sletter sogn fra db ud fra sognid
     void deleteSogn(int sognid);
 
+    // finder sogn fra db ud fra sognid
     Sogn getSognById(int sognid);
 }

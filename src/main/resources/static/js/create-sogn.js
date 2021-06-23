@@ -17,7 +17,9 @@ function submitForm(ae) {
 }
 
 async function submitFormAsync(mouseEvent) {
-    mouseEvent.preventDefault(); //prevent form from beeing cleared when executing submit
+
+    //prevent form from beeing cleared when executing submit
+    mouseEvent.preventDefault();
     // and also important. prevent action from beeing executed, meaning sending form to server (url in action=)
 
     out("submit form async");

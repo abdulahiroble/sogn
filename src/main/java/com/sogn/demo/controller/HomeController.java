@@ -27,29 +27,29 @@ public class HomeController {
     @Autowired
     KommuneRepository kommuneRepository;
 
+    // Retunerer vores index side
     @GetMapping("/index")
     public String index() {
         return "/";
     }
 
-    @GetMapping("/getForecastTotals")
-    public int getForecastTotals() {
-        return sognRepository.selectTotals();
-    }
-
+    // Henter vores kommune side og beregne total smittetyk for kommune
     @GetMapping("/sekommuner")
     public String kommuner() {
 
-        System.out.println(getForecastTotals());
+        System.out.println(sognRepository.selectTotals());
 
         return "kommuner";
     }
 
+    // Returnere update siden hvor man kan opdatere sogne
     @GetMapping("updatesognlist")
     public String updatesognlist() {
         return "updatesognlist";
     }
 
+    // Finder specifikke sogn id og giver en fejl hvis ugyldigt id ellers returnere
+    // den opdatesognlist.html
     @GetMapping("/sognUpdate/{sognid}")
     public String sognlistUpdate(@PathVariable(value = "sognid") int sognid, Model model) {
 
@@ -59,24 +59,26 @@ public class HomeController {
             model.addAttribute("sognlist", sognlist);
 
         } catch (Exception e) {
-            System.out.println("Error can't update user profile " + e);
+            System.out.println("Error can't update sogn " + e);
         }
 
         return "updatesognlist";
     }
 
+    // Finder specifikke id og slette det og derefter redirecter til index siden
     @GetMapping("/sognDelete/{sognid}")
     public String deleteSogn(@PathVariable(value = "sognid") int sognid) {
 
         try {
             this.sognListService.deleteSogn(sognid);
         } catch (Exception e) {
-            System.out.println("Error can't delete user " + e);
+            System.out.println("Error can't delete sogn " + e);
         }
 
         return "redirect:/";
     }
 
+    // Returnere create sogn siden på dette endpoint
     @GetMapping("/createsogn")
     public String createsogn(Model sogn, Model kommune) {
 

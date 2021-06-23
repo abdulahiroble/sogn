@@ -10,6 +10,7 @@ import java.util.Set;
 @Entity
 public class Kommune {
 
+    // Sætter vores primary og auto incrementer
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int kommuneid;
@@ -17,9 +18,8 @@ public class Kommune {
     @Column(name = "kommunenavn")
     private String kommunenavn;
 
-    // @Column(name = "totalsmitte")
-    // private int totalsmitte;
-
+    // Mange til en forhold hvor en kommune har tilknytning til mange sogne hvor
+    // sogne får tildelt en foreing key som er kommuneid
     @OneToMany
     @JoinColumn(name = "kommuneid")
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "sognid")
@@ -55,12 +55,4 @@ public class Kommune {
     public void setSogn(Set<Sogn> sogn) {
         this.sogn = sogn;
     }
-
-    // public int getTotalsmitte() {
-    // return totalsmitte;
-    // }
-
-    // public void setTotalsmitte(int totalsmitte) {
-    // this.totalsmitte = totalsmitte;
-    // }
 }
